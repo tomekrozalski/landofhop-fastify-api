@@ -1,9 +1,11 @@
-import { FastifyPluginAsync } from 'fastify'
+import { FastifyPluginAsync } from 'fastify';
 
 const root: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
-  fastify.get('/', async function (request, reply) {
-    return { root: true }
-  })
-}
+  fastify.post<{ Body: any }>('/', async function (request, reply) {
+    fastify.log.info(JSON.stringify(request.body));
+
+    return { root: true };
+  });
+};
 
 export default root;

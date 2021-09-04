@@ -18,15 +18,15 @@ const beverageSchema = new mongoose.Schema(
     },
     // producer: producerSchema,
     // editorial: editorialSchema,
-    added: {
-      type: Date,
-      required: true,
-    },
-    updated: Date,
+    // added: {
+    //   type: Date,
+    //   required: true,
+    // },
+    // updated: Date,
   },
-  { strict: false },
+  // { strict: false },
 );
 
-beverageSchema.index({ badge: 1, shortId: 1 }, { unique: true });
+// beverageSchema.index({ badge: 1, shortId: 1 }, { unique: true });
 
 export default mongoose.model('Beverage', beverageSchema);

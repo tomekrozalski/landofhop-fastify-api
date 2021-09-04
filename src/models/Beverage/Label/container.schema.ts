@@ -1,5 +1,5 @@
 import * as mongoose from 'mongoose';
-import * as Int32 from 'mongoose-int32';
+const Int32 = require('mongoose-int32').loadType(mongoose);
 
 // import {
 //   ContainerColor,
@@ -34,19 +34,19 @@ const containerSchema = new mongoose.Schema(
     hasCork: {
       type: Boolean,
       validate: {
-        validator(v) {
-          return v;
+        validator(value: boolean) {
+          return value;
         },
-        message: (props) => `${props.value} need to be true or be undefined`,
+        message: (props: any) => `${props.value} need to be true or be undefined`,
       },
     },
     hasCapWireFlip: {
       type: Boolean,
       validate: {
-        validator(v) {
-          return v;
+        validator(value: boolean) {
+          return value;
         },
-        message: (props) => `${props.value} need to be true or be undefined`,
+        message: (props: any) => `${props.value} need to be true or be undefined`,
       },
     },
   },

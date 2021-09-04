@@ -1,20 +1,9 @@
 import { FastifyPluginAsync } from 'fastify';
 
-const basics: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
-  fastify.get('/basics', async function (request, reply) {
-    //     const beverages = this.mongo.client.db('landofhop').collection('beverages');
-    //
-    //     beverages.findOne({}, (err, user) => {
-    //       if (err) {
-    //         reply.send(err);
-    //
-    //         return;
-    //       }
-    //       reply.send(user);
-    //     });
+import { getBeverage } from '../../controllers/beverage.controller';
 
-    return { test: true };
-  });
+const basics: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
+  fastify.get('/basics', getBeverage);
 };
 
 export default basics;

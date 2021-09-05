@@ -1,7 +1,7 @@
 import fp from 'fastify-plugin';
 import env, { fastifyEnvOpt } from 'fastify-env';
 
-export default fp<fastifyEnvOpt>(async (fastify, opts) => {
+export default fp<fastifyEnvOpt>(async (fastify) => {
   fastify.register(env, {
     dotenv: true,
     schema: {

@@ -1,4 +1,4 @@
-import Beverage from '../models/Beverage/Beverage';
+import Beverage from '@/models/Beverage/Beverage';
 
 // get all beverage
 const getBeverage = async () => {

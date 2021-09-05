@@ -1,5 +1,6 @@
 import * as mongoose from 'mongoose';
 
+import priceSchema from '../common/price.schema';
 import containerSchema from './container.schema';
 
 const labelSchema = new mongoose.Schema(
@@ -15,10 +16,10 @@ const labelSchema = new mongoose.Schema(
       type: containerSchema,
       required: true,
     },
-    // price: {
-    //   type: [priceSchema],
-    //   default: undefined,
-    // },
+    price: {
+      type: [priceSchema],
+      default: undefined,
+    },
   },
   { _id: false },
 );

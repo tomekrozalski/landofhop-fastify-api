@@ -1,7 +1,14 @@
 {
-    "extends": "fastify-tsconfig",
-    "compilerOptions": {
-        "outDir": "dist"
-    },
-    "include": ["src/**/*.ts"]
+  "extends": "fastify-tsconfig",
+  "compilerOptions": {
+    "outDir": "dist",
+    "target": "es5",
+    "baseUrl": ".",
+    "paths": {
+      "@/controllers/*": ["./src/controllers/*"],
+      "@/models/*": ["./src/models/*"],
+      "@/utils/*": ["./src/utils/*"]
+    }
+  },
+  "include": ["src/**/*.ts"]
 }

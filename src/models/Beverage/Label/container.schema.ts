@@ -1,31 +1,27 @@
 import * as mongoose from 'mongoose';
 const Int32 = require('mongoose-int32').loadType(mongoose);
 
-// import {
-//   ContainerColor,
-//   ContainerMaterial,
-//   ContainerType,
-//   ContainerUnit,
-// } from "beverage/utils/enums";
+import type { Container as ContainerTypes } from '@/utils/types/beverage/raw/fragments';
+import { ContainerColor, ContainerMaterial, ContainerType, ContainerUnit } from '@/utils/enums/beverage';
 
-const containerSchema = new mongoose.Schema(
+const containerSchema = new mongoose.Schema<ContainerTypes>(
   {
-    // color: {
-    //   type: String,
-    //   enum: Object.values(ContainerColor),
-    // },
-    // material: {
-    //   type: String,
-    //   enum: Object.values(ContainerMaterial),
-    // },
-    // unit: {
-    //   type: String,
-    //   enum: Object.values(ContainerUnit),
-    // },
-    // type: {
-    //   type: String,
-    //   enum: Object.values(ContainerType),
-    // },
+    color: {
+      type: String,
+      enum: Object.values(ContainerColor),
+    },
+    material: {
+      type: String,
+      enum: Object.values(ContainerMaterial),
+    },
+    unit: {
+      type: String,
+      enum: Object.values(ContainerUnit),
+    },
+    type: {
+      type: String,
+      enum: Object.values(ContainerType),
+    },
     value: {
       type: Int32,
       min: 0,

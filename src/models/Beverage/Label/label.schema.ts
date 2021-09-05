@@ -1,17 +1,19 @@
 import * as mongoose from 'mongoose';
 
-import priceSchema from '../common/price.schema';
+import { brewingSchema, impressionsSchema, ingredientsSchema, priceSchema } from '@/models/Beverage/common';
+import type { Label as LabelTypes } from '@/utils/types/beverage/raw';
 import containerSchema from './container.schema';
+import generalSchema from './general.schema';
 
-const labelSchema = new mongoose.Schema(
+const labelSchema = new mongoose.Schema<LabelTypes>(
   {
-    // general: {
-    //   type: generalSchema,
-    //   required: true,
-    // },
-    // brewing: brewingSchema,
-    // ingredients: ingredientsSchema,
-    // impressions: impressionsSchema,
+    general: {
+      type: generalSchema,
+      required: true,
+    },
+    brewing: brewingSchema,
+    ingredients: ingredientsSchema,
+    impressions: impressionsSchema,
     container: {
       type: containerSchema,
       required: true,

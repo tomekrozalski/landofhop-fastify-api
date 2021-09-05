@@ -1,8 +1,9 @@
 import * as mongoose from 'mongoose';
 
+import type { Beverage as BeverageTypes } from '@/utils/types/beverage/raw';
 import labelSchema from './Label/label.schema';
 
-const beverageSchema = new mongoose.Schema(
+const beverageSchema = new mongoose.Schema<BeverageTypes>(
   {
     shortId: {
       type: String,
@@ -22,11 +23,11 @@ const beverageSchema = new mongoose.Schema(
     //   type: Date,
     //   required: true,
     // },
-    // updated: Date,
+    updated: Date,
   },
-  // { strict: false },
+  { strict: false },
 );
 
-// beverageSchema.index({ badge: 1, shortId: 1 }, { unique: true });
+beverageSchema.index({ badge: 1, shortId: 1 }, { unique: true });
 
 export default mongoose.model('Beverage', beverageSchema);

@@ -1,7 +1,9 @@
 import * as mongoose from 'mongoose';
 
 import type { Beverage as BeverageTypes } from '@/utils/types/beverage/raw';
-import labelSchema from './Label/label.schema';
+import labelSchema from './label';
+import producerSchema from './producer';
+import editorialSchema from './editorial';
 
 const beverageSchema = new mongoose.Schema<BeverageTypes>(
   {
@@ -17,12 +19,12 @@ const beverageSchema = new mongoose.Schema<BeverageTypes>(
       type: labelSchema,
       required: true,
     },
-    // producer: producerSchema,
-    // editorial: editorialSchema,
-    // added: {
-    //   type: Date,
-    //   required: true,
-    // },
+    producer: producerSchema,
+    editorial: editorialSchema,
+    added: {
+      type: Date,
+      required: true,
+    },
     updated: Date,
   },
   { strict: false },

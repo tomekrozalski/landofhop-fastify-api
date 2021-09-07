@@ -3,6 +3,7 @@
   "compilerOptions": {
     "outDir": "dist",
     "target": "es5",
+    "esModuleInterop": true,
     "baseUrl": ".",
     "paths": {
       "@/controllers/*": ["./src/controllers/*"],

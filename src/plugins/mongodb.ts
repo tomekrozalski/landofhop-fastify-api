@@ -1,5 +1,5 @@
 import fp from 'fastify-plugin';
-import * as mongoose from 'mongoose';
+import mongoose from 'mongoose';
 
 export default fp(async () => {
   mongoose.connect(

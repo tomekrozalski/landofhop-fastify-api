@@ -1,0 +1,21 @@
+{
+  "title": "Querystring Schema",
+  "type": "object",
+  "properties": {
+    "language": {
+      "type": "string"
+    },
+    "skip": {
+      "type": "string"
+    },
+    "limit": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "language",
+    "skip",
+    "limit"
+  ]
+}

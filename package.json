@@ -10,7 +10,8 @@
     "test": "npm run build:ts && tsc -p test/tsconfig.test.json && cross-env TS_NODE_FILES=true tap --ts test/**/*.test.ts",
     "start": "npm run build:ts && fastify start -l info dist/app.js",
     "build:ts": "tsc",
-    "dev": "tsc && concurrently -k -p \"[{name}]\" -n \"TypeScript,App\" -c \"yellow.bold,cyan.bold\" \"tsc -w\" \"fastify start --ignore-watch=.ts$ -w -l info -P dist/app.js\""
+    "dev": "tsc && concurrently -k -p \"[{name}]\" -n \"TypeScript,App\" -c \"yellow.bold,cyan.bold\" \"tsc -w\" \"fastify start --ignore-watch=.ts$ -w -l info -P dist/app.js\"",
+    "compile-schemas": "json2ts -i src/utils/schemas/ -o src/utils/types/queries/"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +23,7 @@
     "fastify-env": "^2.1.1",
     "fastify-plugin": "^3.0.0",
     "fastify-sensible": "^3.1.0",
+    "lodash": "^4.17.21",
     "module-alias": "^2.2.2",
     "mongoose": "^6.0.4",
     "mongoose-int32": "^0.5.0"
@@ -37,7 +39,6 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "fastify-tsconfig": "^1.0.1",
-    "json-schema-to-typescript": "^10.1.4",
     "prettier": "^2.3.2",
     "tap": "^15.0.9",
     "ts-node": "^10.0.0",
